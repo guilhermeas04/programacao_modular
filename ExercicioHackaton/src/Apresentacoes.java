@@ -1,14 +1,9 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-/**
- * Repositório Singleton para todas as apresentações.
- * Segue padrão Singleton + encapsula a lista de apresentações.
- */
 public class Apresentacoes {
     private static Apresentacoes instancia;
-    private final List<Apresentacao> lista;
+    private List<Apresentacao> lista;
 
     private Apresentacoes() {
         lista = new ArrayList<>();
@@ -26,6 +21,7 @@ public class Apresentacoes {
     }
 
     public List<Apresentacao> listar() {
-        return Collections.unmodifiableList(lista); // Retorna lista imutável
+        return lista;
     }
 }
+

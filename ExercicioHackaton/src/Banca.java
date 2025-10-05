@@ -1,12 +1,8 @@
 import java.util.Map;
 
-/**
- * Representa uma banca avaliadora de um projeto.
- * Segue SRP: calcula nota final e mantém jurados.
- */
 public class Banca implements Avaliavel {
-    private final Projeto projetoAvaliado;
-    private final Map<Jurado, Double> jurados;
+    private Projeto projetoAvaliado;
+    private Map<Jurado, Double> jurados;
 
     public Banca(Projeto projetoAvaliado, Map<Jurado, Double> jurados) {
         this.projetoAvaliado = projetoAvaliado;
@@ -24,15 +20,13 @@ public class Banca implements Avaliavel {
     @Override
     public void calcularNotaFinal() {
         if (jurados == null || jurados.isEmpty()) {
-            projetoAvaliado.setNotaFinal(0);
+            projetoAvaliado.setNotaFinal(0); // ou lança exceção
             return;
         }
 
-        double media = jurados.values().stream()
-                .mapToDouble(Double::doubleValue)
-                .average()
-                .orElse(0.0);
+        double media = jurados.values().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
 
         projetoAvaliado.setNotaFinal(media);
     }
+
 }
