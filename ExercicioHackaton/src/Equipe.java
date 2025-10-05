@@ -1,9 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * Representa uma equipe de estudantes.
+ */
 public class Equipe {
-    private String nome;
-    private List<Estudante> membros;
+    private final String nome;
+    private final List<Estudante> membros;
 
     public Equipe(String nome) {
         this.nome = nome;
@@ -15,7 +19,7 @@ public class Equipe {
     }
 
     public List<Estudante> getMembros() {
-        return membros;
+        return Collections.unmodifiableList(membros);
     }
 
     public String getNome() {
