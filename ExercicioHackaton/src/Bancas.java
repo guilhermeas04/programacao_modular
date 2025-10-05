@@ -1,9 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * Repositório Singleton para todas as bancas.
+ */
 public class Bancas {
     private static Bancas instancia;
-    private List<Banca> lista;
+    private final List<Banca> lista;
 
     private Bancas() {
         lista = new ArrayList<>();
@@ -21,6 +25,6 @@ public class Bancas {
     }
 
     public List<Banca> listar() {
-        return lista;
+        return Collections.unmodifiableList(lista);
     }
 }

@@ -1,9 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * Repositório Singleton para todas as equipes.
+ */
 public class Equipes {
     private static Equipes instancia;
-    private List<Equipe> lista;
+    private final List<Equipe> lista;
 
     private Equipes() {
         lista = new ArrayList<>();
@@ -21,6 +25,6 @@ public class Equipes {
     }
 
     public List<Equipe> listar() {
-        return lista;
+        return Collections.unmodifiableList(lista);
     }
 }
